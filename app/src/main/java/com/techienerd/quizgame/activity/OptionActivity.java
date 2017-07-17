@@ -30,7 +30,6 @@ public class OptionActivity extends AppCompatActivity implements View.OnClickLis
     private Button btnNext;
     private int pos;
     private TextView txtQues, txtType, txtWrong;
-    private CheckBox ch1, ch2, ch3, ch4;
     private boolean isTrue;
     private LinearLayout layOption;
     private int correct, wrong;
@@ -62,6 +61,7 @@ public class OptionActivity extends AppCompatActivity implements View.OnClickLis
         btnNext.setOnClickListener(this);
 
         txtQues = (TextView) findViewById(R.id.tct);
+        txtQues.setTextColor(Color.WHITE);
         txtType.setText(CategoryActivity.getInstance().categoryArrayList.get(index).getType());
         db = new DatabaseHelper(this);
         layOption = (LinearLayout) findViewById(R.id.layOption);
@@ -133,6 +133,7 @@ public class OptionActivity extends AppCompatActivity implements View.OnClickLis
 
         final CheckBox checkBox = new CheckBox(this);
         checkBox.setText(text);
+        checkBox.setTextColor(Color.WHITE);
         checkBox.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
