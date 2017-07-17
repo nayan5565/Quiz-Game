@@ -2,6 +2,7 @@ package com.techienerd.quizgame.adapter;
 
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.Color;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -48,6 +49,7 @@ public class CategoryAdapter extends RecyclerView.Adapter<CategoryAdapter.MyView
     public void onBindViewHolder(MyViewHolder holder, int position) {
         mCategory = categoryArrayList.get(position);
         holder.textView.setText(mCategory.getType());
+        holder.textView.setTextColor(Color.WHITE);
 
     }
 
