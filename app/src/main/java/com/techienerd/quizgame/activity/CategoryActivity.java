@@ -71,7 +71,7 @@ public class CategoryActivity extends AppCompatActivity{
 
         mCategory = new MCategory();
 
-        mCategory.setType("ইংরেজি প্রশ্ন ");
+        mCategory.setType("English");
         mCategory.setId(1);
 
         mQuestion = new MQuestion();
@@ -241,14 +241,14 @@ public class CategoryActivity extends AppCompatActivity{
         mCategory.setQuestionArrayList(questionArrayList);
         categoryArrayList.add(mCategory);
 
-        //bangla question
+        //Math question
 
         questionArrayList = new ArrayList<>();
         optionArrayList = new ArrayList<>();
         mQuestion = new MQuestion();
 
         mCategory = new MCategory();
-        mCategory.setType("বাংলা প্রশ্ন");
+        mCategory.setType("Math");
         mCategory.setId(2);
 
         mQuestion.setQues("২+২ =?");

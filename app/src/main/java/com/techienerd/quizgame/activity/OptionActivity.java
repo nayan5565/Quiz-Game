@@ -29,11 +29,11 @@ public class OptionActivity extends AppCompatActivity implements View.OnClickLis
     private TextView txtCount;
     private Button btnNext;
     private int pos;
-    private TextView txtQues, txtType, txtWrong;
+    private TextView txtQues, txtType, txtWrong, txtQuestionPos;
     private boolean isTrue;
     private LinearLayout layOption;
     private int correct, wrong;
-    private int index;
+    private int index, quesPos=1;
     private int parentId;
     private int bestScore;
     private MScore mScore;
@@ -44,6 +44,7 @@ public class OptionActivity extends AppCompatActivity implements View.OnClickLis
         super.onCreate(savedInstanceState);
         setContentView(R.layout.lay_option);
         init();
+        changeButtonColor();
         prepareDisplay();
     }
 
@@ -61,10 +62,12 @@ public class OptionActivity extends AppCompatActivity implements View.OnClickLis
         btnNext.setOnClickListener(this);
 
         txtQues = (TextView) findViewById(R.id.tct);
+        txtQuestionPos = (TextView) findViewById(R.id.txtQuestionPosition);
         txtQues.setTextColor(Color.WHITE);
         txtType.setText(CategoryActivity.getInstance().categoryArrayList.get(index).getType());
         db = new DatabaseHelper(this);
         layOption = (LinearLayout) findViewById(R.id.layOption);
+        txtQuestionPos.setText(quesPos + " out of " + CategoryActivity.getInstance().questionArrayList.size());
 
     }
 
@@ -106,6 +109,8 @@ public class OptionActivity extends AppCompatActivity implements View.OnClickLis
                 public void onClick(View v) {
                     correct = 0;
                     wrong = 0;
+                    quesPos=1;
+                    txtQuestionPos.setText(quesPos + " out of " + CategoryActivity.getInstance().questionArrayList.size());
                     txtCount.setText(correct + " : ");
                     txtWrong.setText(wrong + "");
                     Collections.shuffle(CategoryActivity.getInstance().categoryArrayList.get(index).getQuestionArrayList());
@@ -142,10 +147,8 @@ public class OptionActivity extends AppCompatActivity implements View.OnClickLis
                 if (CategoryActivity.getInstance().categoryArrayList.get(index).getQuestionArrayList().get(pos).getOptionArrayList().get(id).getTag() == 1) {
                     correct++;
 
-                    Toast.makeText(OptionActivity.this, "correct", Toast.LENGTH_SHORT).show();
                 } else {
                     wrong++;
-                    Toast.makeText(OptionActivity.this, "wrong", Toast.LENGTH_SHORT).show();
                 }
                 for (int i = 0; i < layOption.getChildCount(); i++) {
                     layOption.getChildAt(i).setClickable(false);
@@ -177,11 +180,13 @@ public class OptionActivity extends AppCompatActivity implements View.OnClickLis
         if (!isTrue)
             return;
 
+
         if (v.getId() == R.id.btnNext) {
             pos++;
+            quesPos++;
+            txtQuestionPos.setText(quesPos + " out of " + CategoryActivity.getInstance().questionArrayList.size());
             isTrue = false;
             prepareDisplay();
-//            prepareOptionView();
             for (int i = 0; i < layOption.getChildCount(); i++) {
                 layOption.getChildAt(i).setClickable(true);
             }
