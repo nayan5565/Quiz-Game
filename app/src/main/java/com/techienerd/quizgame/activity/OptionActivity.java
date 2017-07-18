@@ -107,14 +107,15 @@ public class OptionActivity extends AppCompatActivity implements View.OnClickLis
             btnOk.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    correct = 0;
-                    wrong = 0;
-                    quesPos=1;
-                    txtQuestionPos.setText(quesPos + " out of " + CategoryActivity.getInstance().questionArrayList.size());
-                    txtCount.setText(correct + " : ");
-                    txtWrong.setText(wrong + "");
-                    Collections.shuffle(CategoryActivity.getInstance().categoryArrayList.get(index).getQuestionArrayList());
-                    prepareDisplay();
+                    finish();
+//                    correct = 0;
+//                    wrong = 0;
+//                    quesPos=1;
+//                    txtQuestionPos.setText(quesPos + " out of " + CategoryActivity.getInstance().questionArrayList.size());
+//                    txtCount.setText(correct + " : ");
+//                    txtWrong.setText(wrong + "");
+//                    Collections.shuffle(CategoryActivity.getInstance().categoryArrayList.get(index).getQuestionArrayList());
+//                    prepareDisplay();
                     dialog.dismiss();
                 }
             });
