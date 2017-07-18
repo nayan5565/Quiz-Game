@@ -185,6 +185,9 @@ public class OptionActivity extends AppCompatActivity implements View.OnClickLis
         if (v.getId() == R.id.btnNext) {
             pos++;
             quesPos++;
+            if (quesPos>5){
+                quesPos=5;
+            }
             txtQuestionPos.setText(quesPos + " out of " + CategoryActivity.getInstance().questionArrayList.size());
             isTrue = false;
             prepareDisplay();
