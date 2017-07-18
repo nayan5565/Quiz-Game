@@ -63,6 +63,9 @@ public class CategoryActivity extends AppCompatActivity{
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         recyclerView.setAdapter(adapter);
     }
+    public void destroy(){
+        finish();
+    }
 
     private void generateToMulti() {
         questionArrayList = new ArrayList<>();

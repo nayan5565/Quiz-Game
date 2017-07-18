@@ -10,6 +10,7 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import com.techienerd.quizgame.R;
+import com.techienerd.quizgame.activity.CategoryActivity;
 import com.techienerd.quizgame.activity.OptionActivity;
 import com.techienerd.quizgame.model.MCategory;
 
@@ -72,6 +73,7 @@ public class CategoryAdapter extends RecyclerView.Adapter<CategoryAdapter.MyView
                     intent.putExtra("index", getAdapterPosition());
                     intent.putExtra("parentId", mCategory.getId());
                     context.startActivity(intent);
+                    CategoryActivity.getInstance().destroy();
                 }
             });
         }
